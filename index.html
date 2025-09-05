@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayur Agarwala | Cybersecurity Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --primary-text: #c9d1d9;
+            --secondary-text: #8b949e;
+            --border-color: rgba(139, 148, 158, 0.2);
+            --accent-blue: #58a6ff;
+            --accent-purple: #a371f7;
+            --glass-bg: rgba(22, 27, 34, 0.7);
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            cursor: none;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif;
+        }
+        .custom-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+            z-index: 10000;
+        }
+        .custom-cursor.hover {
+             width: 50px;
+             height: 50px;
+             background-color: rgba(88, 166, 255, 0.1);
+        }
+        .custom-cursor-dot {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+        }
+        #globe-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .brand-gradient {
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease-in-out;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.2);
+            border-color: rgba(88, 166, 255, 0.4);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skill-category-title {
+            color: var(--primary-text);
+            font-weight: 700;
+            font-family: 'Roboto Slab', serif;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .skill-tag {
+             background-color: rgba(88, 166, 255, 0.1);
+             color: var(--accent-blue);
+             font-weight: 500;
+        }
+        .prose-invert ul { list-style-type: disc; padding-left: 1.5rem;}
+        .prose-invert li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
+    <header class="fixed w-full top-0 z-50 glass-effect !rounded-none !transform-none !shadow-none !border-b-1 !border-t-0 !border-x-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-100"><a href="#">Mayur Agarwala</a></h1>
+            <nav class="hidden md:flex space-x-8 font-semibold">
+                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#certifications" class="hover:text-blue-400 transition-colors">Certifications</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-transform hover:scale-105">Contact</a>
+             <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800/80 backdrop-blur-sm">
+             <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700">About</a>
+             <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-700">Skills</a>
+             <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700">Projects</a>
+             <a href="#certifications" class="block py-2 px-4 text-sm hover:bg-gray-700">Certifications</a>
+             <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24 relative z-10">
+        <section id="hero" class="relative text-center h-[80vh] flex items-center justify-center flex-col fade-in">
+            <div id="globe-container"></div>
+            <div class="hero-content">
+                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+                    Architect of Digital Fortresses:
+                    <br>
+                    <span class="brand-gradient">Offensive Operator & Cloud Defender</span>
+                </h2>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
+                    I don't just find vulnerabilities; I forge the future of cyber resilience. Specializing in full-spectrum security—from deep-level penetration testing to architecting automated, zero-trust cloud environments.
+                </p>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 fade-in">
+            <div class="max-w-4xl mx-auto glass-effect rounded-2xl p-8 md:p-12">
+                <h3 class="text-3xl font-bold text-center mb-8">My Mission</h3>
+                <p class="text-gray-300 leading-relaxed text-center">
+                    I operate on a simple principle: theory is a tool, but results are the only metric that matters. My approach to cybersecurity is to build, break, and automate. I move beyond textbooks by engineering my own hands-on labs—proving every skill with a tangible project.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 fade-in">
+            <h3 class="text-3xl font-bold text-center mb-12">Technical Arsenal</h3>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="glass-effect rounded-2xl p-6">
+                    <h4 class="skill-category-title">Cybersecurity</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Offensive Security</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">AppSec</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Cloud Security (AWS)</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Vulnerability Assessment</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Penetration Testing</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Network Security</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">SecOps</span>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-2xl p-6">
+                    <h4 class="skill-category-title">Development & Automation</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Python</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Flask</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Boto3 (AWS SDK)</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">API Integration</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Bash Scripting</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Software Architecture</span>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-2xl p-6">
+                    <h4 class="skill-category-title">Tools & Technologies</h4>
+                     <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Burp Suite</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Nmap</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Metasploit</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Wireshark</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Git & GitHub</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Docker</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">Kali Linux</span>
+                        <span class="skill-tag text-sm px-3 py-1 rounded-full">SIEM (Sentinel)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="py-20 fade-in">
+            <h3 class="text-3xl font-bold text-center mb-12">Mission Debriefs: Projects</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Project 1: Sentinel Scan -->
+                <div class="glass-effect project-card rounded-2xl overflow-hidden group">
+                    <img src="https://placehold.co/600x400/0d1117/58a6ff?text=Sentinel+Scan" alt="Sentinel Scan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold">Project: Sentinel Scan</h4>
+                        <p class="mt-2 text-gray-400">A C2-enabled recon framework to accelerate pentesting by over 90%.</p>
+                        <button class="mt-4 text-blue-400 hover:text-blue-300 font-semibold" onclick="showModal('sentinelScan')">View Case Study →</button>
+                    </div>
+                </div>
+                <!-- Project 2: CSPM Tool -->
+                <div class="glass-effect project-card rounded-2xl overflow-hidden group">
+                     <img src="https://placehold.co/600x400/0d1117/58a6ff?text=CSPM+Tool" alt="CSPM Tool" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold">Project: CSPM Tool</h4>
+                        <p class="mt-2 text-gray-400">An automated Python script to audit AWS environments for common security misconfigurations.</p>
+                        <button class="mt-4 text-blue-400 hover:text-blue-300 font-semibold" onclick="showModal('cspmTool')">View Case Study →</button>
+                    </div>
+                </div>
+                <!-- Project 3: Aegis Agent -->
+                <div class="glass-effect project-card rounded-2xl overflow-hidden group">
+                     <img src="https://placehold.co/600x400/0d1117/58a6ff?text=Aegis+Agent" alt="Aegis Agent" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold">Project: Aegis Agent</h4>
+                        <p class="mt-2 text-gray-400">A modern HIDS to counter sophisticated, file-level attacks like LOTL.</p>
+                        <button class="mt-4 text-blue-400 hover:text-blue-300 font-semibold" onclick="showModal('aegisAgent')">View Case Study →</button>
+                    </div>
+                </div>
+                <!-- Project 4: CTF Builder -->
+                 <div class="glass-effect project-card rounded-2xl overflow-hidden group">
+                     <img src="https://placehold.co/600x400/0d1117/58a6ff?text=CTF+Builder" alt="CTF Builder" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold">Project: CTF Builder Dojo</h4>
+                        <p class="mt-2 text-gray-400">A platform for deploying custom cybersecurity challenges for training.</p>
+                        <button class="mt-4 text-blue-400 hover:text-blue-300 font-semibold" onclick="showModal('ctfBuilder')">View Case Study →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-20 fade-in">
+             <h3 class="text-3xl font-bold text-center mb-12">Certifications & Credentials</h3>
+             <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Achievement -->
+                <div class="glass-effect rounded-2xl p-6 text-center lg:col-span-2">
+                     <h4 class="text-lg font-bold">Top 2.5% National Rank</h4>
+                    <p class="text-blue-400 text-sm">Naukri Campus CodeQuezt#22</p>
+                    <p class="text-gray-400 text-xs mt-2">Elite algorithmic problem-solving under pressure against 30,000+ developers.</p>
+                </div>
+                <!-- Cisco -->
+                <div class="glass-effect rounded-2xl p-6 text-center">
+                    <h4 class="text-lg font-bold">Offensive Security Path</h4>
+                    <p class="text-blue-400 text-sm">Cisco (In Progress)</p>
+                </div>
+                <!-- IBM -->
+                <div class="glass-effect rounded-2xl p-6 text-center">
+                    <h4 class="text-lg font-bold">Cybersecurity Fundamentals</h4>
+                    <p class="text-blue-400 text-sm">IBM Certified</p>
+                </div>
+             </div>
+        </section>
+
+        <footer id="contact" class="bg-gray-900/50 border-t border-gray-800 -mx-6 -mb-24 mt-20 fade-in">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h3 class="text-3xl font-bold mb-4">Get In Touch</h3>
+                <p class="max-w-xl mx-auto text-gray-400 mb-8">
+                    I'm actively seeking new challenges. My inbox is always open.
+                </p>
+                <a href="mailto:mayur311agarwal@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-transform hover:scale-105">Contact Me</a>
+                <div class="mt-16 flex justify-center space-x-6">
+                     <a href="https://github.com/mayur-3112" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mayur-agarwala-42603a21a" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+                <div class="mt-16 border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                    &copy; 2025 Mayur Agarwala. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Modal System -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-75 z-[9998] hidden" onclick="closeAllModals()"></div>
+    
+    <!-- Sentinel Scan Modal -->
+    <div id="sentinelScan-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="glass-effect rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative prose prose-invert">
+            <button onclick="closeModal('sentinelScan')" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
+            <h3 class="brand-gradient">Case Study: Sentinel Scan</h3>
+            <p>Architected a C2-driven security automation engine, reducing initial reconnaissance time from 3+ hours to under 15 minutes.</p>
+            <ul>
+                <li>Engineered a Flask web dashboard to control a remote Python agent, automating the discovery and analysis of an organization's digital footprint.</li>
+                <li>Increased reporting efficiency by 100% by automatically generating PDF reports with an Executive Summary and prioritized, actionable remediation steps.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- CSPM Tool Modal -->
+    <div id="cspmTool-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="glass-effect rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative prose prose-invert">
+            <button onclick="closeModal('cspmTool')" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
+            <h3 class="brand-gradient">Case Study: Cloud Security Posture Management (CSPM) Tool</h3>
+            <p>Developed a Python script to audit AWS environments for common security misconfigurations, using the Boto3 SDK to programmatically assess risk.</p>
+            <ul>
+                <li>Implemented automated checks for high-impact vulnerabilities such as publicly accessible S3 buckets, overly permissive IAM roles, and unrestricted security groups.</li>
+                <li>Provided a foundational model for a proactive security operations workflow, designed to reduce the attack surface of cloud environments.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Aegis Agent Modal -->
+    <div id="aegisAgent-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="glass-effect rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative prose prose-invert">
+            <button onclick="closeModal('aegisAgent')" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
+            <h3 class="brand-gradient">Case Study: Aegis Agent</h3>
+            <p>Led a team to develop a core component for a Host-based Intrusion Detection System (HIDS) designed for security incident analysis in Python.</p>
+             <ul>
+                <li>Designed a high-performance File Integrity Monitor (FIM) that uses the BLAKE3 hashing algorithm to detect unauthorized file modifications, additions, or deletions.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CTF Builder Modal -->
+    <div id="ctfBuilder-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="glass-effect rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative prose prose-invert">
+            <button onclick="closeModal('ctfBuilder')" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
+            <h3 class="brand-gradient">Case Study: CTF Builder Dojo</h3>
+            <p>A deliberately vulnerable web application built with Python and Flask to serve as a legal environment for practicing OWASP Top 10 exploitation techniques.</p>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // --- 3D Globe ---
+        let scene, camera, renderer, globe;
+        function initGlobe() {
+            const container = document.getElementById('globe-container');
+            if (!container) return;
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            container.appendChild(renderer.domElement);
+            const geometry = new THREE.SphereGeometry(2, 32, 32);
+            const material = new THREE.MeshBasicMaterial({ color: 0x58a6ff, wireframe: true });
+            globe = new THREE.Mesh(geometry, material);
+            scene.add(globe);
+            camera.position.z = 4;
+            window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('mousemove', onMouseMove, false);
+            animate();
+        }
+        function animate() {
+            requestAnimationFrame(animate);
+            if (globe) globe.rotation.y += 0.0005;
+            if (renderer) renderer.render(scene, camera);
+        }
+        function onWindowResize() {
+            const container = document.getElementById('globe-container');
+            if(container && camera && renderer) {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            }
+        }
+        let mouseX = 0, mouseY = 0;
+        function onMouseMove(event) {
+            if (!camera || !scene) return;
+            mouseX = (event.clientX - window.innerWidth / 2) / 100;
+            mouseY = (event.clientY - window.innerHeight / 2) / 100;
+            camera.position.x += (mouseX - camera.position.x) * .05;
+            camera.position.y += (-mouseY - camera.position.y) * .05;
+            camera.lookAt(scene.position);
+        }
+
+        // --- UI Logic ---
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.custom-cursor-dot');
+        window.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // --- Modal Logic ---
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId + '-modal');
+            if (modal) {
+                modalBackdrop.classList.remove('hidden');
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId + '-modal');
+            if (modal) {
+                modalBackdrop.classList.add('hidden');
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+        function closeAllModals() {
+            const modals = document.querySelectorAll('[id$="-modal"]');
+            modals.forEach(modal => modal.classList.add('hidden'));
+            modalBackdrop.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape") closeAllModals();
+        });
+
+        document.addEventListener('DOMContentLoaded', initGlobe);
+    </script>
+</body>
+</html>
+
