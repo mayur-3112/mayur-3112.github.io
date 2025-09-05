@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -106,6 +106,7 @@
         }
         .prose-invert ul { list-style-type: disc; padding-left: 1.5rem;}
         .prose-invert li { margin-bottom: 0.5rem; }
+        .prose-invert strong { color: var(--primary-text); }
     </style>
 </head>
 <body class="antialiased">
@@ -221,13 +222,13 @@
                         <button class="mt-4 text-blue-400 hover:text-blue-300 font-semibold" onclick="showModal('sentinelScan')">View Case Study →</button>
                     </div>
                 </div>
-                <!-- Project 2: CSPM Tool -->
+                <!-- Project 2: Zero Trust Fabric -->
                 <div class="glass-effect project-card rounded-2xl overflow-hidden group">
-                     <img src="https://placehold.co/600x400/0d1117/58a6ff?text=CSPM+Tool" alt="CSPM Tool" class="w-full h-48 object-cover">
+                     <img src="https://placehold.co/600x400/0d1117/a371f7?text=Zero+Trust" alt="Zero Trust Fabric" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h4 class="text-xl font-bold">Project: CSPM Tool</h4>
-                        <p class="mt-2 text-gray-400">An automated Python script to audit AWS environments for common security misconfigurations.</p>
-                        <button class="mt-4 text-blue-400 hover:text-blue-300 font-semibold" onclick="showModal('cspmTool')">View Case Study →</button>
+                        <h4 class="text-xl font-bold">Operation: Zero Trust Fabric</h4>
+                        <p class="mt-2 text-gray-400">An advanced defensive architecture for cloud-native apps, assuming an internal breach.</p>
+                        <button class="mt-4 text-blue-400 hover:text-blue-300 font-semibold" onclick="showModal('zeroTrustFabric')">View Case Study →</button>
                     </div>
                 </div>
                 <!-- Project 3: Aegis Agent -->
@@ -311,16 +312,24 @@
         </div>
     </div>
     
-    <!-- CSPM Tool Modal -->
-    <div id="cspmTool-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4">
+    <!-- Zero Trust Fabric Modal -->
+    <div id="zeroTrustFabric-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4">
         <div class="glass-effect rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative prose prose-invert">
-            <button onclick="closeModal('cspmTool')" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
-            <h3 class="brand-gradient">Case Study: Cloud Security Posture Management (CSPM) Tool</h3>
-            <p>Developed a Python script to audit AWS environments for common security misconfigurations, using the Boto3 SDK to programmatically assess risk.</p>
+            <button onclick="closeModal('zeroTrustFabric')" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
+            <h3 class="brand-gradient">Case Study: Operation: Zero Trust Fabric</h3>
+            <p>An advanced, internal defensive architecture for cloud-native applications, engineered on the principle of "Never Trust, Always Verify" to protect against internal threats.</p>
+            
+            <h4>Core Technologies:</h4>
             <ul>
-                <li>Implemented automated checks for high-impact vulnerabilities such as publicly accessible S3 buckets, overly permissive IAM roles, and unrestricted security groups.</li>
-                <li>Provided a foundational model for a proactive security operations workflow, designed to reduce the attack surface of cloud environments.</li>
+                <li><strong>Containerization & Orchestration:</strong> Docker and Kubernetes</li>
+                <li><strong>Advanced Networking & Security:</strong> eBPF (via Cilium) for kernel-level observability and policy enforcement.</li>
+                <li><strong>Policy as Code:</strong> Open Policy Agent (OPA) for security rule enforcement.</li>
+                <li><strong>Confidential Computing:</strong> (Advanced Phase) AWS Nitro Enclaves for data-in-use protection.</li>
+                <li><strong>Supply Chain Security:</strong> Sigstore & SBOM for pipeline integrity.</li>
             </ul>
+
+             <h4>Project Phases:</h4>
+            <p>This is a multi-stage operation moving from building a secure CI/CD pipeline (The Secure Foundry) to deploying a sentient service mesh, leveraging confidential computing (The Sanctum), and finally creating an AI-driven predictive defense shield.</p>
         </div>
     </div>
     
@@ -448,7 +457,4 @@
     </script>
 </body>
 </html>
-
-
-
 
